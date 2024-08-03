@@ -48,10 +48,10 @@
     "vite": "^5.3.4"
   },
   "bin": {
-    "create-simplify9-vite-app": "create-simplify9-vite-app.ts"
+    "create-simplify9-vite-app": "./create-simplify9-vite-app.ts"
   },
   "description": "Build a React Vite SWC Template.",
-  "main": "main.tsx",
+  "main": "./src/main.tsx",
   "author": "",
   "license": "ISC"
 }
