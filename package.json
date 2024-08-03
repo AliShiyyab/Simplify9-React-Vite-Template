@@ -1,20 +1,22 @@
 {
-  "name": "simplify9-vite-app",
-  "version": "0.0.8",
+  "name": "create-simplify9-vite-app",
+  "version": "0.0.12",
   "type": "module",
   "scripts": {
+    "build": "tsc -p tsconfig.cli.json",
     "dev": "vite",
-    "build": "tsc",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "files": [
-    "src",
-    "public",
+    "dist",
+    "template",
     "vite.config.ts",
     "tsconfig.json",
+    "tsconfig.cli.json",
+    "tsconfig.app.json",
     ".eslintrc.js",
-    "create-simplify9-vite-app.js"
+    "src/create-simplify9-vite-app.ts"
   ],
   "dependencies": {
     "@emotion/react": "^11.13.0",
@@ -48,7 +50,7 @@
     "vite": "^5.3.4"
   },
   "bin": {
-    "create-simplify9-vite-app": "./create-simplify9-vite-app.ts"
+    "create-simplify9-vite-app": "./dist/create-simplify9-vite-app.js"
   },
   "description": "Build a React Vite SWC Template.",
   "main": "./src/main.tsx",
