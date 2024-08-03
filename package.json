@@ -1,9 +1,9 @@
 {
   "name": "create-simplify9-vite-app",
-  "version": "0.0.20",
+  "version": "0.0.22",
   "type": "module",
   "scripts": {
-    "build": "tsc -p tsconfig.cli.json",
+    "build": "tsc -p tsconfig.cli.json && copyfiles -u 1 src/template/**/* dist",
     "dev": "vite",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
@@ -47,7 +47,8 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
     "typescript": "^5.5.4",
-    "vite": "^5.3.4"
+    "vite": "^5.3.4",
+    "copyfiles": "^2.4.1"
   },
   "bin": {
     "create-simplify9-vite-app": "./dist/create-simplify9-vite-app.js"
