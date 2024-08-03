@@ -1,2 +1,13 @@
-node_modules
-dist
+# Ignore everything in root except dist and template
+/*
+!/dist
+!/template
+
+# Ignore node_modules, dist, and template within src
+src/node_modules
+src/dist
+src/template
+
+# Ignore test files
+*.test.ts
+*.spec.ts
