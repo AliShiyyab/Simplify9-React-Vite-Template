@@ -53,5 +53,9 @@
   "description": "Build a React Vite SWC Template.",
   "main": "./src/main.tsx",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AliShiyyab/Simplify9-React-Vite-Template.git"
+  }
 }
