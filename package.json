@@ -1,6 +1,6 @@
 {
   "name": "create-simplify9-vite-app",
-  "version": "0.0.14",
+  "version": "0.0.20",
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.cli.json",
