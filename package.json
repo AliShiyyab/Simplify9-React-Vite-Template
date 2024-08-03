@@ -1,6 +1,6 @@
 {
   "name": "create-simplify9-vite-app",
-  "version": "0.0.22",
+  "version": "1.0.5",
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.cli.json && copyfiles -u 1 src/template/**/* dist",
@@ -51,7 +51,7 @@
     "copyfiles": "^2.4.1"
   },
   "bin": {
-    "create-simplify9-vite-app": "./dist/create-simplify9-vite-app.js"
+    "create-simplify9-app": "bin/create-simplify9-app.js"
   },
   "description": "Build a React Vite SWC Template.",
   "main": "./src/main.tsx",
