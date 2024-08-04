@@ -67,7 +67,7 @@ const createProject = async () => {
 	process.chdir(projectName)
 	
 	if (useRedux) {
-		runCommand('npm install @reduxjs/toolkit react-redux')
+		runCommand('npm install @reduxjs/toolkit react-redux redux-persist')
 		const fileType = projectType.includes('TS') ? 'ts' : 'js'
 		const baseDir = path.join('src', 'application')
 		const reduxDirs = ['api', 'reducers', 'store']
