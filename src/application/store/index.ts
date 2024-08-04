@@ -1,6 +1,6 @@
 // store.ts
 import { configureStore, Middleware } from '@reduxjs/toolkit';
-import { authApi } from '../services/authApi'; // Auth API service
+import { authApi } from '../services/authApi';
 import { combineReducers } from 'redux';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import storage from 'redux-persist/lib/storage';
@@ -20,7 +20,7 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, reducers);
 
-export const Store = configureStore({
+export const store = configureStore({
     reducer: persistedReducer,
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
@@ -30,11 +30,9 @@ export const Store = configureStore({
         }).concat(authApi.middleware as Middleware),
 });
 
-export let persistor = persistStore(Store);
+export let persistor = persistStore(store);
 
-export type RootState = ReturnType<typeof Store.getState>;
-export type AppDispatch = typeof Store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 export const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
 export const useAppDispatch = () => useDispatch<AppDispatch>();
-
-export default Store;

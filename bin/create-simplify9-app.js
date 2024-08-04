@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { execSync } from 'child_process';
-const projectName = 'simplify9-vite-app';
+const projectName = '.';
 
 execSync(`git clone https://github.com/AliShiyyab/Simplify9-React-Vite-Template.git ${projectName}`);
 execSync(`rm -rf ${projectName}/.git`);

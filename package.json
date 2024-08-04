@@ -1,23 +1,15 @@
 {
   "name": "create-simplify9-vite-app",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "type": "module",
+  "license": "MIT",
   "scripts": {
-    "build": "tsc -p tsconfig.cli.json && copyfiles -u 1 src/template/**/* dist",
+    "start": "vite",
     "dev": "vite",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "build": "tsc && vite build",
+    "serve": "vite preview",
+    "lint": "eslint ."
   },
-  "files": [
-    "dist",
-    "template",
-    "vite.config.ts",
-    "tsconfig.json",
-    "tsconfig.cli.json",
-    "tsconfig.app.json",
-    ".eslintrc.js",
-    "src/create-simplify9-vite-app.ts"
-  ],
   "dependencies": {
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
@@ -32,10 +24,10 @@
     "react-i18next": "^15.0.0",
     "react-redux": "^9.1.2",
     "react-router-dom": "^6.26.0",
-    "redux-persist": "^6.0.0"
+    "redux-persist": "^6.0.0",
+    "vite-tsconfig-paths": "4.3.1"
   },
   "devDependencies": {
-    "@types/fs-extra": "^11.0.4",
     "@types/node": "^22.1.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
@@ -44,11 +36,8 @@
     "@typescript-eslint/parser": "^7.15.0",
     "@vitejs/plugin-react-swc": "^3.7.0",
     "eslint": "^8.57.0",
-    "eslint-plugin-react-hooks": "^4.6.2",
-    "eslint-plugin-react-refresh": "^0.4.7",
     "typescript": "^5.5.4",
-    "vite": "^5.3.4",
-    "copyfiles": "^2.4.1"
+    "vite": "^5.3.4"
   },
   "bin": {
     "create-simplify9-app": "bin/create-simplify9-app.js"
@@ -56,7 +45,6 @@
   "description": "Build a React Vite SWC Template.",
   "main": "./src/main.tsx",
   "author": "",
-  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "https://github.com/AliShiyyab/Simplify9-React-Vite-Template.git"
