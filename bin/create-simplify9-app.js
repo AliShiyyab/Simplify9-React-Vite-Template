@@ -73,7 +73,7 @@ const createProject = async () => {
 		const reduxDirs = ['api', 'reducers', 'store']
 		reduxDirs.forEach(dir => fs.mkdirSync(path.join(baseDir, dir), { recursive: true }))
 		const storePath = path.join(baseDir, 'store', `store.${fileType}`)
-		fs.writeFileSync(storePath, `import {combineReducers, configureStore} from "@reduxjs/toolkit";\nimport storage from "redux-persist/lib/storage";\nimport {FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE} from "redux-persist";\n\nconst reducers = combineReducers({});\nconst persistConfig = { key: "root", whitelist: [] as string[], storage };\nconst persistedReducer = persistReducer(persistConfig, reducers);\nconst store = configureStore({
+		fs.writeFileSync(storePath, `import {combineReducers, configureStore} from "@reduxjs/toolkit";\nimport storage from "redux-persist/lib/storage";\nimport {FLUSH, PAUSE, PERSIST, persistReducer, PURGE, REGISTER, REHYDRATE} from "redux-persist";\n\nconst reducers = combineReducers({});\nconst persistConfig = { key: "root", whitelist: [] as string[], storage };\nconst persistedReducer = persistReducer(persistConfig, reducers);\nconst store = configureStore({
     reducer: persistedReducer,
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
