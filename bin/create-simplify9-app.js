@@ -47,14 +47,8 @@ const createProject = async () => {
 	
 	const projectName = '.'
 	switch (projectType) {
-		case 'React Vite App JS':
-			runCommand(`npm create vite@latest ${projectName} -- --template react`)
-			break
 		case 'React Vite App TS':
 			runCommand(`npm create vite@latest ${projectName} -- --template react-ts`)
-			break
-		case 'Next App JS':
-			runCommand(`npx create-next-app ${projectName}`)
 			break
 		case 'Next App TS':
 			runCommand(`npx create-next-app ${projectName} --ts`)
@@ -111,7 +105,7 @@ const createProject = async () => {
 	}
 	
 	const tsconfigNodeJsonFile = fs.readFileSync("tsconfig.node.json", 'utf8')
-	fs.writeFileSync("tsconfig.node.json", `${tsconfigNodeJsonFile.replace('"strict": true,', '"strict": true, "allowSyntheticDefaultImports": true,')}`)
+	fs.writeFileSync("tsconfig.app.json", `${tsconfigNodeJsonFile.replace('"strict": true,', '"strict": true, "allowSyntheticDefaultImports": true,')}`)
 	
 	console.log('Project setup complete!')
 }
