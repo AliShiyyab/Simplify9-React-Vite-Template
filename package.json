@@ -1,8 +1,8 @@
 {
-  "name": "create-simplify9-vite-app",
-  "version": "1.0.7",
+  "name": "create-simplify9-template",
+  "version": "0.0.3",
   "type": "module",
-  "license": "MIT",
+  "license": "ISC",
   "scripts": {
     "start": "vite",
     "dev": "vite",
@@ -19,6 +19,7 @@
     "@swc/core": "^1.7.5",
     "fs-extra": "^11.2.0",
     "i18next": "^23.12.2",
+    "inquirer": "^10.1.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-i18next": "^15.0.0",
@@ -40,7 +41,7 @@
     "vite": "^5.3.4"
   },
   "bin": {
-    "create-simplify9-app": "bin/create-simplify9-app.js"
+    "create-simplify9-template": "bin/create-simplify9-app.js"
   },
   "description": "Build a React Vite SWC Template.",
   "main": "./src/main.tsx",
