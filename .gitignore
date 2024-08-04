@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+/node_modules
+/bin
+yarn.lock
+.npmignore
+.eslintrc.cjs
+.eslintrc.js
+vite.config.js
