@@ -20,7 +20,7 @@ const createProject = async () => {
 			type: 'list',
 			name: 'projectType',
 			message: 'Select the type of project you want to create:',
-			choices: ['React Vite App JS', 'React Vite App TS', 'Next App JS', 'Next App TS'],
+			choices: ['React Vite App TS', 'Next App TS'],
 		},
 		{
 			type: 'list',
@@ -73,7 +73,17 @@ const createProject = async () => {
 		const reduxDirs = ['api', 'reducers', 'store']
 		reduxDirs.forEach(dir => fs.mkdirSync(path.join(baseDir, dir), { recursive: true }))
 		const storePath = path.join(baseDir, 'store', `store.${fileType}`)
-		fs.writeFileSync(storePath, `import {combineReducers, configureStore} from "@reduxjs/toolkit";\nimport {FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE} from "redux-persist";\n\nconst reducers = combineReducers({});\nconst persistConfig = { ket: "root", whitelist: [], storage };\nconst persistedReducer = persistReducer(persistConfig, reducers);\nconst store = configureStore({ reducer: persistedReducer, middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: { ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER] }}).concat() });\n\nexport default store;\n`)
+		fs.writeFileSync(storePath, `import {combineReducers, configureStore} from "@reduxjs/toolkit";\nimport storage from "redux-persist/lib/storage";\nimport {FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE} from "redux-persist";\n\nconst reducers = combineReducers({});\nconst persistConfig = { key: "root", whitelist: [] as string[], storage };\nconst persistedReducer = persistReducer(persistConfig, reducers);\nconst store = configureStore({
+    reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: {
+                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
+            }
+        }).concat(
+            []
+        )
+});\n\nexport default store;\n`)
 	}
 	
 	const componentsDir = path.join('src', 'components')
@@ -99,6 +109,9 @@ const createProject = async () => {
 		fs.writeFileSync(appFilePath, `${appContent.replace('<React.StrictMode>', '<React.StrictMode><ThemeProviderWrapper>').replace('</React.StrictMode>', '</ThemeProviderWrapper></React.StrictMode>')}`)
 		fs.writeFileSync(path.join('src', `ThemeProviderWrapper.${componentFileType}`), themeProviderContent)
 	}
+	
+	const tsconfigNodeJsonFile = fs.readFileSync("tsconfig.node.json", 'utf8')
+	fs.writeFileSync("tsconfig.node.json", `${tsconfigNodeJsonFile.replace('"strict": true,', '"strict": true, "allowSyntheticDefaultImports": true,')}`)
 	
 	console.log('Project setup complete!')
 }
